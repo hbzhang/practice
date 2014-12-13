@@ -1,0 +1,79 @@
+<section data-ng-controller="GridsterController">
+
+    <p class="siteadminpanel">Site Admin Panel <input type="checkbox" ng-model="checked" ></p>
+    <pageslide ps-class="ng-pageslide" ps-open="checked" >
+      <div gridster="gridsterOpts" class="scrollable">
+        <ul>
+
+            <li gridster-item="item1" ng-repeat="item1 in treeItems">
+              <section data-ng-controller="navTreeController" data-ng-init="activityInit()">
+
+                  <div style="width:250px;margin-left:1px;background:whitesmoke;border:1px solid lightgray;border-radius:5px;">
+                      <span ng-if="doing_async">...loading...</span>
+                       <abn-tree tree-data="my_data" tree-control="my_tree" modal-dialog = "launchSimpleModal()" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Granny Smith"></abn-tree>
+                  </div>
+
+                  <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.title.$invalid }">
+                      <label>Create a New Team:</label>
+                      <div >
+                          <input name="TeamName" type="text" class="form-control" data-ng-model="teamname" id="teamname" placeholder="Team Name" required>
+                          <button ng-click="try_adding_a_branch()" class="btn btn-info">Add Team</button>
+                          <!--<button type="submit" class="btn btn-info">Submit</button> -->
+                          <button  ng-click="try_deleting_a_branch()" type="delete" class="btn btn-info">Remove Team</button>
+                      </div>
+
+                  </div>
+
+
+              </section>
+            </li>
+
+            <!-- <li gridster-item="item1" ng-repeat="item1 in inputItems">
+
+            </li> -->
+
+          
+        </ul>    
+    </div>   
+    </pageslide>
+
+    <div gridster="gridsterOpts">
+        <ul>
+           
+            <li gridster-item="item" ng-repeat="item in treeItems">
+              <section data-ng-controller="navTreeController" data-ng-init="activityInit()">
+
+                      <div style="width:250px;margin-left:1px;background:whitesmoke;border:1px solid lightgray;border-radius:5px;">
+                      <span ng-if="doing_async">...loading...</span>
+                       <abn-tree tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="Granny Smith"></abn-tree>
+                      </div>
+              </section>
+            </li>
+            <li gridster-item="item" ng-repeat="item in contentItems">
+                <div class="" data-ng-controller="modalController">
+                    <h1>Example view from your new awesome package</h1>
+                    <h2>Package: {{package.name}}</h2>
+                    <ol>
+                        <li>
+                            <button ng-click="launchInlineModal()" class="btn btn-info">modal</button>
+                        </li>
+
+                    </ol>
+                    <h3><img src="/practice/assets/img/logo.png" /></h3>
+                    </br>
+                    <p class="alert alert-info">You can find your package in /packages/practice</p>
+                    </br>
+                    <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/practice</p>
+                    </br>
+                    <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
+                    </br>
+                </div>
+            </li>
+
+        </ul>    
+</div>
+
+</section>
+
+
+

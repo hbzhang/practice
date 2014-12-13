@@ -1,0 +1,8 @@
+{
+  "name": "practice",
+  "version": "0.0.1",
+  "dependencies": {
+  	"angular-gridster":"latest",
+    " angular-modal-service":"latest"
+  }
+}
